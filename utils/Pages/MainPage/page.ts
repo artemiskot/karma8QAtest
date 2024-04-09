@@ -6,7 +6,7 @@ export class MainPage{
 
     constructor(page: Page){
         this.page = page;
-        this.signUpButtonLocator = page.locator('header >> .header-signup:has-text("Sign Up")');
+        this.signUpButtonLocator = page.locator(mainPageLocators.signUpClass);
     }
 
     async clickSignUp() {
