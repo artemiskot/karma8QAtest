@@ -12,12 +12,12 @@ export class AuthorizationPage {
 
     constructor(page: Page) {
         this.page = page;
-        this.fullNameInput = page.locator(authorizationPageLocators.nameInputId);
-        this.emailInput = page.locator(authorizationPageLocators.emailInputId);
-        this.passwordInput = page.locator(authorizationPageLocators.passwordInputId);
-        this.confirmPasswordInput = page.locator(authorizationPageLocators.confirmPasswordInputId);
-        this.agreeTermsCheckbox = page.locator(authorizationPageLocators.agreeTermsCheckboxLabel);
-        this.signUpButton = page.locator(authorizationPageLocators.signUpButtonText);
+        this.fullNameInput = page.locator(authorizationPageLocators.NAME_INPUT_ID);
+        this.emailInput = page.locator(authorizationPageLocators.EMAIL_INPUT_ID);
+        this.passwordInput = page.locator(authorizationPageLocators.PASSWORD_INPUT_ID);
+        this.confirmPasswordInput = page.locator(authorizationPageLocators.CONFIRM_PASSWORD_INPUT_ID);
+        this.agreeTermsCheckbox = page.locator(authorizationPageLocators.AGREE_TERMS_CHECKBOX_LABEL);
+        this.signUpButton = page.locator(authorizationPageLocators.SIGN_UP_BUTTON_TEXT);
     }
 
     async enterFullName(fullName: string) {
