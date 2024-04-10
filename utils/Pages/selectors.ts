@@ -1,5 +1,6 @@
 export const mainPageLocators = {
     signUpClass: 'header >> .header-signup:has-text("Sign Up")',
+    tryForFreeButtonText: 'text="Try it for free"'
 }
 
 export const authorizationPageLocators = {

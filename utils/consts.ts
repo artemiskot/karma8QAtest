@@ -1,7 +1,11 @@
-export const url = 'https://rabata.io/'
+export const rabataUrl = 'https://rabata.io/';
+
+export const EXPECTED_SIGNUP_URL_REGEX = /.*signup/;
+
+export const EXPECTED_CONFIRMATION_TEXT = "Please confirm your e-mail address";
 
 export const testDataRegistration1 = {
-    name:'John Doe',
-    email: 'john@example.com',
+    name:'test testov',
+    email: 'test@testmail.com',
     password:'AAAqwe1[]'
 }
