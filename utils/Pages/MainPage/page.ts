@@ -1,5 +1,7 @@
 import { Locator, Page } from "playwright";
 import { mainPageLocators } from "../selectors";
+import { expect } from "playwright/test";
+import { PRIVACY_POLICY_TEXT } from "@utils/consts";
 export class MainPage{
     readonly page: Page
     readonly signUpButtonLocator: Locator;
@@ -26,5 +28,9 @@ export class MainPage{
     
     async clickPrivacyPolicy() {
         await this.privacyPolicyLocator.click();
+    }
+
+    async checkPrivacyPolicyContent() {
+        await expect(this.page.locator(`text=${PRIVACY_POLICY_TEXT}`)).toBeVisible();
     }
 }
