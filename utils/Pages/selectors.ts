@@ -2,6 +2,10 @@ export const mainPageLocators = {
     SIGN_UP_CLASS: 'header >> .header-signup:has-text("Sign Up")',
     TRY_FOR_FREE_BUTTON_TEXT: 'text="Try it for free"',
     PRIVACY_POLICY_TEXT: 'text="Privacy policy"',
+    TOTAL_DATA_STORED_SLIDER: '#dataApiStoredInput',
+    TOTAL_DATA_STORED_VALUE: '#tbApiStored',
+    MONTHLY_DOWNLOADED_DATA_SLIDER: '#dataDownloadInput',
+    MONTHLY_DOWNLOADED_DATA_VALUE: '#tbDownload',
 }
 
 export const authorizationPageLocators = {

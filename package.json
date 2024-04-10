@@ -5,6 +5,9 @@
     "playwright": "^1.41.2"
   },
   "scripts": {
-    "e2e": "npx playwright test ./tests/ --reporter=line,allure-playwright --workers 1"
+    "e2e": "npx playwright test ./tests/ --reporter=line,allure-playwright --workers 1",
+    "allure-generate": "allure generate allure-results --clean -o allure-report",
+    "allure-open": "allure open allure-report",
+    "allureGenerate": "npm run allure-generate && npm run allure-open"
   }
 }
