@@ -1,7 +1,8 @@
 import { test, expect } from '@playwright/test';
 import { MainPage } from '@utils/Pages/MainPage/page';
 import { AuthorizationPage } from '@utils/Pages/AuthorizationPage/page';
-import { EXPECTED_CONFIRMATION_TEXT, EXPECTED_SIGNUP_URL_REGEX, PRIVACY_POLICY_TEXT, RABATA_URL, TEST_DATA_REGISTRATION1 } from '@utils/consts';
+import { RABATA_URL } from '@utils/consts';
+import { allure } from "allure-playwright";
 
 test.describe('Register user', () => {
     let page;
@@ -14,15 +15,17 @@ test.describe('Register user', () => {
         authPage = new AuthorizationPage(page);
     });
 
-    test('should navigate to rabata.io, click on sign up and register', async () => {
-        await test.step('Go to rabata page', async () => {
+    test('should navigate to rabata.io, click on privacy policy', async () => {
+        allure.feature('Privacy policy');
+        allure.story('Check privacy policy on main page');
+        await allure.step('Go to rabata page', async () => {
             await page.goto(RABATA_URL);
         });
 
-        await test.step('Click privacy policy button', async () => {
+        await allure.step('Click privacy policy button', async () => {
             await mainPage.clickPrivacyPolicy();
         });
-        await test.step('Verify privacy policy text', async () => {
+        await allure.step('Verify privacy policy text', async () => {
             await mainPage.checkPrivacyPolicyContent();
         });
 

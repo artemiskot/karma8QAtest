@@ -12,6 +12,11 @@ export const PRIVACY_POLICY_TEXT = `
     may process when using our Services.
 `.trim();
 
+
+/*
+    This object could be used as a possible test data which I used first time to check. 
+    Later data, which should not be random could be stored in a same way.
+*/
 export const TEST_DATA_REGISTRATION1 = {
     name:'test testov',
     email: 'test@testmail.com',

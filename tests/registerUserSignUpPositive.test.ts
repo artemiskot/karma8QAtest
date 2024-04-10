@@ -2,6 +2,8 @@ import { test, expect } from '@playwright/test';
 import { MainPage } from '@utils/Pages/MainPage/page';
 import { AuthorizationPage } from '@utils/Pages/AuthorizationPage/page';
 import { EXPECTED_CONFIRMATION_TEXT, EXPECTED_SIGNUP_URL_REGEX, RABATA_URL, TEST_DATA_REGISTRATION1 } from '@utils/consts';
+import { allure } from 'allure-playwright';
+import { generateRandomEmail, generateRandomName, generateRandomPassword } from '@utils/functions';
 
 test.describe('Register user', () => {
   let page;
@@ -15,20 +17,26 @@ test.describe('Register user', () => {
   });
 
   test('should navigate to rabata.io, click on sign up and register', async () => {
-    await test.step('Go to rabata page', async () => {
+    allure.feature('User Registration');
+    allure.story('Complete user registration from main page to confirmation');
+
+    await allure.step('Go to rabata page', async () => {
       await page.goto(RABATA_URL);
     });
 
-    await test.step('Click sign up', async () => {
+    await allure.step('Click sign up', async () => {
       await mainPage.clickSignUp();
       await expect(page).toHaveURL(EXPECTED_SIGNUP_URL_REGEX);
     });
 
-    await test.step('Register a new user', async () => {
-      await authPage.registerUser(TEST_DATA_REGISTRATION1.name, TEST_DATA_REGISTRATION1.email, TEST_DATA_REGISTRATION1.password, TEST_DATA_REGISTRATION1.password);
+    await allure.step('Register a new user', async () => {
+      let name = generateRandomName(5);
+      let email = generateRandomEmail();
+      let password = generateRandomPassword();
+      await authPage.registerUser(name, email, password, password);
     });
 
-    await test.step('Verify email confirmation message', async () => {
+    await allure.step('Verify email confirmation message', async () => {
       await expect(page.locator(`text=${EXPECTED_CONFIRMATION_TEXT}`)).toBeVisible();
     });
   });

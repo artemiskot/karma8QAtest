@@ -2,6 +2,8 @@ import { test, expect } from '@playwright/test';
 import { MainPage } from '@utils/Pages/MainPage/page';
 import { RABATA_URL } from '@utils/consts';
 import { generateRandomValue } from '@utils/functions'
+import { allure } from "allure-playwright";
+
 test.describe('Slider interaction', () => {
     let page;
     let mainPage: MainPage;
@@ -12,18 +14,20 @@ test.describe('Slider interaction', () => {
     });
 
     test('should change sliders values and verify them', async () => {
-        await test.step('Go to rabata.io page', async () => {
+        allure.feature('Check sliders');
+        allure.story('Check sliders working on main page');
+        await allure.step('Go to rabata.io page', async () => {
             await page.goto(RABATA_URL);
         });
 
-        await test.step('Change Total Data Stored slider', async () => {
+        await allure.step('Change Total Data Stored slider', async () => {
             const newValue = generateRandomValue(1, 1000);
             await mainPage.setTotalDataStored(newValue);
             const value = await mainPage.getTotalDataStoredValue();
             expect(value.trim()).toBe(`${newValue}`);
         });
 
-        await test.step('Change Monthly Downloaded Data slider', async () => {
+        await allure.step('Change Monthly Downloaded Data slider', async () => {
             const newValue = generateRandomValue(1, 1000);
             await mainPage.setMonthlyDownloadedData(newValue);
             const value = await mainPage.getMonthlyDownloadedDataValue();
