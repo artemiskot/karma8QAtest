@@ -19,18 +19,9 @@ test.describe('Register user', () => {
       await page.goto(RABATA_URL);
     });
 
-    await test.step('Click sign up', async () => {
-      await mainPage.clickSignUp();
-      await expect(page).toHaveURL(EXPECTED_SIGNUP_URL_REGEX);
-    });
-
-    await test.step('Register a new user', async () => {
-      await authPage.registerUser(TEST_DATA_REGISTRATION1.name, TEST_DATA_REGISTRATION1.email, TEST_DATA_REGISTRATION1.password, TEST_DATA_REGISTRATION1.password);
-    });
-
-    await test.step('Verify email confirmation message', async () => {
-      await expect(page.locator(`text=${EXPECTED_CONFIRMATION_TEXT}`)).toBeVisible();
-    });
+    await test.step('Click privacy policy button', async () => {
+        await mainPage.clickPrivacyPolicy();
+      });
   });
 
   test.afterAll(async () => {

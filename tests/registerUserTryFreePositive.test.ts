@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { MainPage } from '@utils/Pages/MainPage/page';
-import { AuthorizationPage } from '@utils/Pages/AuthorizationPage/page'; // Убедитесь, что путь корректный
+import { AuthorizationPage } from '@utils/Pages/AuthorizationPage/page';
 import { EXPECTED_CONFIRMATION_TEXT, EXPECTED_SIGNUP_URL_REGEX, RABATA_URL, TEST_DATA_REGISTRATION1 } from '@utils/consts';
 
 test.describe('Register user', () => {

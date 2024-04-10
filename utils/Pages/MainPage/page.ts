@@ -4,8 +4,11 @@ export class MainPage{
     readonly page: Page
     readonly signUpButtonLocator: Locator;
     readonly tryForFreeButtonLocator: Locator;
-    readonly privacyPolicyLocator: Locator;
-
+    /* 
+       Potentially privacyPolicy need to move to separate footer object which will be inherited,
+       but for test task i guess ok :)
+    */
+    readonly privacyPolicyLocator: Locator; 
     constructor(page: Page) {
         this.page = page;
         this.signUpButtonLocator = page.locator(mainPageLocators.SIGN_UP_CLASS);
@@ -20,4 +23,8 @@ export class MainPage{
     async clickTryForFree() {
         await this.tryForFreeButtonLocator.click();
     }    
+    
+    async clickPrivacyPolicy() {
+        await this.privacyPolicyLocator.click();
+    }
 }
